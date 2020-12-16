@@ -1,4 +1,6 @@
 @import './header.css';
+@import './gallery.css';
+@import './mediaQuery.css';
 
 :root{
     --background-principal:#645D59 ;
@@ -23,5 +25,13 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 400;
+    color: var(--color-principal);
+}
+.container {
+    width: 90%;
+    margin: 0 auto;  /*El auto es para centrarlo en su max-widh*/
+}
+.user__name {
+    text-decoration: none;
     color: var(--color-principal);
 }

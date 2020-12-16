@@ -1,0 +1,17 @@
+@media all and (min-width: 375px) {
+    .grid-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (min-width: 768px) {
+    .grid-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .grid-gallery {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
