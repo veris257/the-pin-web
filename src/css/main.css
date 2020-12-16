@@ -1,6 +1,8 @@
 @import './header.css';
 @import './gallery.css';
 @import './mediaQuery.css';
+@import './buttons.css';
+@import './modal.css';
 
 :root{
     --background-principal:#645D59 ;
@@ -33,5 +35,5 @@ body {
 }
 .user__name {
     text-decoration: none;
-    color: var(--color-principal);
+    color: var(--color-);
 }

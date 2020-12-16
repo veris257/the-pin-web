@@ -1,0 +1,9 @@
+.button__goback {
+    display: inline-block;
+    appearance: none;
+    cursor: pointer;
+    border: 0;
+    height: 25px;
+    text-decoration: none;
+    background-color: transparent;
+}
