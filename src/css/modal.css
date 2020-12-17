@@ -1,7 +1,13 @@
 .modal-item {
     width: 90%;
+    position: absolute;
     margin: 0 auto;
+    top: 10%;
+    left: 0%;
+    right: 0%;
+    background-color: white;
     border-radius: 20px;
+    z-index: 100;
     box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
 }
 .modal-pin {
@@ -45,5 +51,6 @@
     font-size: 14px;
     margin-left: 10px;
     font-weight: 400;
+    text-decoration: none;
     color: var(--background-terciary);
 }
