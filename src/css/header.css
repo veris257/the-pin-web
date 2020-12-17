@@ -37,6 +37,18 @@
     height: 40px;
     padding-left: 10px;
     border: none;
+    outline: none;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.seach__wrapper .seach__input input:focus,
+.seach__wrapper .seach__input input:active {
+    background-color: var(--background-terciary);
+    width: 90%;
+    height: 40px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
     border-radius: 20px;
     margin-bottom: 10px;
 }
