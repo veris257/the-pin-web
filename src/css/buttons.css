@@ -6,4 +6,5 @@
     height: 25px;
     text-decoration: none;
     background-color: transparent;
+    flex-flow: column wrap;
 }

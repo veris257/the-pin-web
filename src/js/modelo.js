@@ -1,11 +1,11 @@
-const pins = [
+export const pins = [
     {
         id: 0,
         user: '@verovelazquez',
         title: 'Example1',
         src: 'src/img/building/imagen1.jpg',
-        link: '',
-        tags: 'building',
+        link: 'www.instagram.com/veris257',
+        tags: ['building', 'otro', 'otro', 'otro'],
         creationDate: new Date(),
     },
     {
@@ -13,8 +13,8 @@ const pins = [
         user: '@raulhuelamo',
         title: 'Example2',
         src: 'src/img/lights/imagen1.jpg',
-        link: '',
-        tags: 'lights',
+        link: 'www.instagram.com/veris257',
+        tags: ['lights', 'otro', 'otro', 'otro'],
         creationDate: new Date(),
     },
     {
@@ -22,8 +22,8 @@ const pins = [
         user: '@evaplaza',
         title: 'Example3',
         src: 'src/img/people/imagen2.jpg',
-        link: '',
-        tags: 'people',
+        link: 'www.instagram.com/veris257',
+        tags: ['people', 'otro', 'otro', 'otro'],
         creationDate: new Date(),
     },
     {
@@ -31,8 +31,8 @@ const pins = [
         user: '@saraalcantara',
         title: 'Example4',
         src: 'src/img/building/imagen2.jpg',
-        link: '',
-        tags: 'building',
+        link: 'www.instagram.com/veris257',
+        tags: ['building', 'otro', 'otro', 'otro'],
         creationDate: new Date(),
     },
     {
@@ -40,8 +40,8 @@ const pins = [
         user: '@lauralara',
         title: 'Example5',
         src: 'src/img/people/imagen3.jpg',
-        link: '',
-        tags: 'people',
+        link: 'www.instagram.com/veris257',
+        tags: ['people', 'otro', 'otro', 'otro'],
         creationDate: new Date(),
     },
     {
@@ -49,8 +49,8 @@ const pins = [
         user: '@carlosmasedo',
         title: 'Example6',
         src: 'src/img/lights/imagen4.jpg',
-        link: '',
-        tags: 'lights',
+        link: 'www.instagram.com/veris257',
+        tags: ['lights', 'otro', 'otro', 'otro'],
         creationDate: new Date(),
     },
 ]
