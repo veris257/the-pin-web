@@ -3,6 +3,8 @@
 @import './mediaQuery.css';
 @import './buttons.css';
 @import './modal.css';
+@import './form.css';
+@import './profile.css';
 
 :root{
     --background-principal:#645D59 ;
@@ -33,3 +35,28 @@ body {
     width: 90%;
     margin: 0 auto;  /*El auto es para centrarlo en su max-widh*/
 }
+
+.hidden {
+    visibility: hidden;
+}
+.h1_title {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 300;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.h2__title {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.h3__title {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
