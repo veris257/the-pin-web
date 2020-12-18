@@ -1,0 +1,31 @@
+.profile__info {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.info__img img{
+    border-radius: 50%;
+    margin: 20px;
+    height: 120px;
+}
+
+.table__title {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 20px;
+}
+.table__title p {
+    margin: 0 20px 0 10px;
+}
+.table__tables {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.tables__table {
+    width: 46%;
+    height: 100px;
+    border-radius: 20px;
+    margin: 2%;
+    background-color: var(--background-terciary);
+}

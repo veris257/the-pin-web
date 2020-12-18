@@ -95,3 +95,20 @@
     background-color: #5B5551;
     border: 1px solid var(--color-secundary)
 }
+
+.nav_new {
+    position: fixed;
+    z-index: 99;
+    width: 60%;
+    left: 20%;
+    right: 20%;
+    height: 150px;
+    bottom: 2%;
+    padding: 20px 20px 0 20px;
+    background-color: var(--background-terciary);
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+}
+.nav_new p {
+    margin: 0 0 5px 15px;
+}

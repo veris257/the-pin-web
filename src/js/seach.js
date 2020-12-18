@@ -1,4 +1,5 @@
-import { pins } from './modelo.js'
+
+import { pins } from './model/pin.js'
 
 
 const $buttonSeach = document.querySelector('#seach')
@@ -29,16 +30,23 @@ function createSearchBar() {
     inputSeach.addEventListener('keydown', e => {
         if (e.keyCode === 13) {
             e.preventDefault();
-            searchMatches(e.target.value);
+            processTags(e.target.value);
             inputSeach.value = '';
         }
     });
 }
 
-function searchMatches(valueInput, pins){
-    let splitted = valueInput.split(' ');
-
-    splitted.forEach(tag => {
-        
+pins.forEach((pin, ind) => {
+    let indice = 0
+    pin.tags.forEach((tags, ind) => {
+        console.log(tags);
+        indice = ind
     })
+    
+})
+
+function processTags(valueInput, pins){
+    let splitted = valueInput.split(' ');
+    console.log(splitted);
+    return splitted
 }
