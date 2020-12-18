@@ -9,13 +9,93 @@
 <link rel="icon" type="image/png" href="src/img/logo__mobile.png" />
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<script defer type="module" src="src/js/show.js"></script>
+<script defer type="module" src="src/js/modelo.js"></script>
+<script defer type="module" src="src/js/seach.js"></script>
+<script defer type="module" src="src/js/gallery.js"></script>
 <body>
-    <header class="header_home">
-
+    <header class="container header_home">
+        <div class="menu_mobile__logo">
+            <a href="index.html"><img src="src/img/logo__mobile.png" alt="logo-mobile"></a>
+        </div>
+        <div class="menu_nav__mobile">
+            <nav class="nav_items">
+                <div class="nav_item">
+                    <button>
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.707107 8.48528L1.77817 7.41421V13.0563V13.0564V14.0563H13.7782V13.0564V13.0563V7.41421L14.8492 8.48528L15.5563 7.77817L8.48528 0.707107L7.77817 0L7.07107 0.707107L0 7.77817L0.707107 8.48528ZM2.77817 13.0563V6.41421L7.77817 1.41421L12.7782 6.41421V13.0563H9.77817V9.05638V8.05638H5.77817V9.05638V13.0563H2.77817ZM6.77817 9.05638V13.0563H8.77817V9.05638H6.77817Z" fill="#D0BEA7"/>
+                    </svg>
+                    </button>
+                </div>
+                <div class="nav_item">
+                    <button id="seach">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7867 6.5C12.7867 9.53757 10.3242 12 7.28668 12C4.24912 12 1.78668 9.53757 1.78668 6.5C1.78668 3.46243 4.24912 1 7.28668 1C10.3242 1 12.7867 3.46243 12.7867 6.5ZM11.5158 11.4362C10.379 12.411 8.90163 13 7.28668 13C3.69683 13 0.786682 10.0899 0.786682 6.5C0.786682 2.91015 3.69683 0 7.28668 0C10.8765 0 13.7867 2.91015 13.7867 6.5C13.7867 8.11495 13.1977 9.59234 12.2229 10.7291L16.6402 15.1464L15.9331 15.8536L11.5158 11.4362Z" fill="#D0BEA7"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav_item ">
+                    <button>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0H6V6H0V7H6V13H7V7H13V6H7V0Z" fill="#D0BEA7"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav_item">
+                    <button>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.21739 9.47827C3.33591 9.47827 1 11.8142 1 14.6957V16H11.4348V14.6957C11.4348 11.8142 9.09888 9.47827 6.21739 9.47827Z" stroke="#D0BEA7"/>
+                        <ellipse cx="6.21752" cy="4.91304" rx="3.91307" ry="3.91304" stroke="#D0BEA7" stroke-linecap="square"/>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <div class="nav_new hidden">
+            <h3 class="h3__title">Create</h3>
+            <p >New Pic</p>
+            <p >New Table</p>
+        </div>
     </header>
-    <div class="container">
-        <section class="galery">
+    <div id="container_principal" class="container">
+        <!-- <section id="user hidden">
+            <div class="profile__info">
+                <div class="info__img">
+                    <img src="src/img/foto3.jpg" alt="">
+                </div>
+                <h2 class="h2__title">Verónica Velázquez</h2>
+                <p class="pin__user">@verovelazquez</p>
+            </div>
+            <div class="container profile__table">
+                <div class="table__title">
+                    <p>ALL TABLES</p>
+                    <p>ALL PINS</p>
+                </div>
+                <div class="table__tables">
+                    <div class="tables__table"></div>
+                    <div class="tables__table"></div>
+                    <div class="tables__table"></div>
+                    <div class="tables__table"></div>
+                </div>
+            </div>
+        </section> -->
+        <!-- <section id="form-login" class="form__registration">
+            <form action="" clas>
+                <div class="modal-button">
+                    <button id="goBack" class="button__goback"><svg width="25px" height="25px" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.91421 4.35355L4.56066 7L3.85355 7.70711L0.353553 4.20711L0 3.85355L0.353553 3.5L3.85355 0L4.56066 0.707107L1.91421 3.35355L5.70711 3.35355C9.28325 3.35355 12.2071 6.27741 12.2071 9.85355L12.2071 11.3536H11.2071L11.2071 9.85355C11.2071 6.8297 8.73096 4.35355 5.70711 4.35355H1.91421Z" fill="#5B5551"/>
+                        </svg></button>
+                </div>
+                <div class="container">
+                    <h2 class="h1_title">Register</h2>
+                    <input class="input__login" type="text" placeholder="jane@example.com">
+                    <input class="input__login" type="text" placeholder="*******">
+                    <input class="button__send" type="submit" value="NEXT">
+                </div>
 
+            </form>
+        </section> -->
+        <section id="gallery" class="grid-gallery">
         </section>
     </div>
 </body>
