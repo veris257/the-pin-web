@@ -1,3 +1,4 @@
+
 @import './header.css';
 @import './gallery.css';
 @import './mediaQuery.css';
@@ -30,6 +31,7 @@ body {
     font-size: 12px;
     font-weight: 400;
     color: var(--color-principal);
+
 }
 .container {
     width: 90%;
@@ -59,3 +61,4 @@ body {
     font-size: 14px;
     margin-bottom: 10px;
 }
+
