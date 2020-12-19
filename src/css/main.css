@@ -38,6 +38,7 @@ body {
 
 .hidden {
     visibility: hidden;
+    display: none;
 }
 .h1_title {
     font-family: 'Comfortaa', cursive;

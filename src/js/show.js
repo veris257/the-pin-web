@@ -45,7 +45,7 @@ function openModal(PinSrc, pins) {
     $modalPin.appendChild($modalPinImg)
 
     const $modalPinUser = document.createElement('div')
-    $modalPinUser .classList.add('modal-pin__user')
+    $modalPinUser .classList.add('pin__user')
     $modalPinUser.innerHTML = `${pin.user}`
     $modalPin.appendChild($modalPinUser)
 

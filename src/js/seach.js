@@ -1,5 +1,7 @@
 
 import { pins } from './model/pin.js'
+import { createGallery } from './gallery.js'
+import { addHidden } from './recurses/addClass.js'
 
 
 const $buttonSeach = document.querySelector('#seach')
@@ -18,9 +20,11 @@ function createSearchBar() {
         </svg>`
     $formSeach.appendChild($formSvg)
     const $formInputSeach = document.createElement('input')
-    $formInputSeach.setAttribute("type", "text");
-    $formInputSeach.setAttribute("placeholder", "Seach");
+    $formInputSeach.setAttribute("type", "text")
+    $formInputSeach.focus()
+    $formInputSeach.setAttribute("placeholder", "Seach")
     $formInputSeach.classList.add('seach__input')
+
     $formSeach.appendChild($formInputSeach)
 
     $wrapperContainer.insertBefore($formSeach, $wrapperContainer.childNodes[0])
@@ -31,22 +35,41 @@ function createSearchBar() {
         if (e.keyCode === 13) {
             e.preventDefault();
             processTags(e.target.value);
-            inputSeach.value = '';
+            addHidden($formSeach);
         }
     });
 }
 
-pins.forEach((pin, ind) => {
-    let indice = 0
-    pin.tags.forEach((tags, ind) => {
-        console.log(tags);
-        indice = ind
-    })
-    
-})
+let splitted = []
 
-function processTags(valueInput, pins){
-    let splitted = valueInput.split(' ');
-    console.log(splitted);
-    return splitted
+function processTags(valueInput){
+    splitted = valueInput.toLowerCase().split(' ');
+    printTag(splitted)
+    seachMathch(splitted)
 }
+function printTag(splitted) {
+    const $wrapperTags = document.createElement('div')
+    $wrapperTags.classList.add('seach__tags')
+    splitted.forEach(tag => {
+        const $tags = document.createElement('p')
+        $tags.classList.add('modal-pin__hashtag')
+        $tags.innerHTML += `#${tag}`
+        $wrapperTags.appendChild($tags)
+        $wrapperContainer.insertBefore($wrapperTags, $wrapperContainer.childNodes[0])
+    })
+}
+
+function seachMathch(splitted) {
+    for(let pin of pins) {
+        const allTags =  pin.tags
+        splitted.forEach(split => {
+            const result = allTags.map((tag, ind) => {
+                if (split === tag) return tag
+            })
+            console.log(result);
+            return result
+        })
+    }
+
+}
+

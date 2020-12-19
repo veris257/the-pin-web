@@ -1,6 +1,6 @@
 import { pins } from './model/pin.js'
 
-function createGallery() {
+export function createGallery() {
     pins.forEach(( {user, src} ) => {
     
         const $gridGallery = document.querySelector('#gallery')
