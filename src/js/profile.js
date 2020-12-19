@@ -2,7 +2,6 @@ import { users } from './model/user.js'
 import { addHidden } from './recurses/addClass.js'
 
 const $buttonProfile = document.querySelector('#profile')
-const $wrapperUser = document.querySelector('#user')
 const $wrapperGallery = document.querySelector('#gallery')
 
 $buttonProfile.addEventListener('click', openProfilePage)
