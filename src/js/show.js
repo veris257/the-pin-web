@@ -1,4 +1,4 @@
-import { pins } from './model/pin.js'
+import { pins } from './modelo.js'
 
 
 const $pinImg = document.querySelectorAll('.grid-gallery__image')
@@ -14,7 +14,7 @@ $pinImg.forEach(pinImg => {
 
 function openModal(PinSrc, pins) {
     let indice = 0
-    pins.forEach((ele, ind) => {
+    pins.forEach((ele, ind)=> {
         if (PinSrc === ele.src) {
             indice = ind;
         }
