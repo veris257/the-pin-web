@@ -50,7 +50,11 @@ function openModal(PinSrc, pins) {
     $modalPin.appendChild($modalPinUser)
 
     const $modalPinTitle = document.createElement('div')
+<<<<<<< HEAD
     $modalPinTitle .classList.add('modal-pin__title')
+=======
+    $modalPinTitle .classList.add('pin__title')
+>>>>>>> 8d94bfbe421759c33264743eb650ebb40ffc3377
     $modalPinTitle.innerHTML = `${pin.title}`
     $modalPin.appendChild($modalPinTitle)
 

@@ -1,5 +1,16 @@
 import { pins } from './model/pin.js'
+import { addHidden } from './recurses/addClass.js'
 
+<<<<<<< HEAD
+=======
+const $logoHome = document.querySelector('#gohome')
+const $buttonHome = document.querySelector('#home')
+
+$logoHome.addEventListener('click', createGallery())
+$buttonHome.addEventListener('click', createGallery())
+
+
+>>>>>>> 8d94bfbe421759c33264743eb650ebb40ffc3377
 export function createGallery() {
     pins.forEach(( {user, src} ) => {
     
