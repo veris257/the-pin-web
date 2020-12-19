@@ -1,12 +1,14 @@
 import { users } from './model/user.js'
-import { addHidden } from './recurses/addClass.js'
+import { addHidden, removeHidden } from './recurses/addClass.js'
 
 const $buttonProfile = document.querySelector('#profile')
+const $wrapperUser = document.querySelector('#user')
 const $wrapperGallery = document.querySelector('#gallery')
 
 $buttonProfile.addEventListener('click', openProfilePage)
 
 function openProfilePage() {
+    removeHidden($wrapperUser)
     addHidden($wrapperGallery)
 
     //TODO: Check which user is
