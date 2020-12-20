@@ -1,4 +1,5 @@
 import { createElementFromHtml } from '../helpers/dom.js'
+// import { renderModal } from '../components/pinModal.js'
 
 const pinTemplate = ({ user, src }) => `
     <div class="grid-gallery__item">
@@ -16,7 +17,9 @@ export function renderPin(pin) {
     $gridGallery.appendChild($galleryItem)
 
     $galleryItem.querySelector('.grid-gallery__image').addEventListener('click', () => {
+        
         // TODO: Show Pin modal
+        renderModal(pin)
     })
 
     $galleryItem.querySelector('.pin__user').addEventListener('click', () => {

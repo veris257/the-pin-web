@@ -31,6 +31,13 @@ body {
     font-weight: 400;
     color: var(--color-principal);
 }
+.button:active,
+.button:hover,
+.button:focus
+{
+    outline: none;
+    appearance: none;
+}
 .container {
     width: 90%;
     margin: 0 auto;  /*El auto es para centrarlo en su max-widh*/
