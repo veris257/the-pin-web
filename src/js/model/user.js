@@ -1,3 +1,6 @@
+export const USER_VERO = 0
+export const USER_RAUL = 1
+
 export const users = [
     {
         id: 0,
@@ -56,3 +59,6 @@ export const users = [
         pins: ['src/img/building/imagen1.jpg', 'src/img/building/imagen1.jpg', 'src/img/building/imagen1.jpg', 'src/img/building/imagen1.jpg']
     }
 ]
+
+export let currentUser
+export const setCurrentUserIndex = userIndex => currentUser = users[userIndex]

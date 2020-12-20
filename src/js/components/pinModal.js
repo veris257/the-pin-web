@@ -16,7 +16,7 @@ function openModal(PinSrc, pins) {
     let indice = 0
     pins.forEach((ele, ind)=> {
         if (PinSrc === ele.src) {
-            indice = ind;
+            indice = ind
         }
     })
     const pin = pins[indice];

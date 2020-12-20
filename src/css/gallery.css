@@ -22,4 +22,5 @@
 .user__name {
     text-decoration: none;
     color: var(--color-);
+    cursor: pointer;
 }
