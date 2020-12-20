@@ -1,4 +1,4 @@
-import { pins } from './modelo.js'
+import { pins } from './modelo.js.js'
 
 
 const $pinImg = document.querySelectorAll('.grid-gallery__image')
