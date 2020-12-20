@@ -7,8 +7,6 @@
     text-decoration: none;
     background-color: transparent;
     flex-flow: column wrap;
-<<<<<<< HEAD
-=======
 }
 .button__send {
     width: 100%;
@@ -18,5 +16,4 @@
     background-color: var(--background-principal);
     border: 1px solid var(--color-secundary);
     padding: 10px;
->>>>>>> 9d52e7e81a55c69fb6cff804bc5d27764a5ea88e
 }

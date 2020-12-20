@@ -9,12 +9,7 @@
 <link rel="icon" type="image/png" href="src/img/logo__mobile.png" />
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<script defer type="module" src="src/js/modelo.js"></script>
-<script defer type="module" src="src/js/seach.js"></script>
-<script defer type="module" src="src/js/profile.js"></script>
-<script defer type="module" src="src/js/gallery.js"></script>
-<script defer type="module" src="src/js/show.js"></script>
-<script defer type="module" src="src/js/recurses/addClass.js"></script>
+<script defer type="module" src="src/js/index.js"></script>
 <body>
     <header class="container header_home">
         <div class="menu_mobile__logo">
@@ -24,22 +19,22 @@
             <nav class="nav_items">
                 <div class="nav_item">
                     <button id="home" href="index.html">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.707107 8.48528L1.77817 7.41421V13.0563V13.0564V14.0563H13.7782V13.0564V13.0563V7.41421L14.8492 8.48528L15.5563 7.77817L8.48528 0.707107L7.77817 0L7.07107 0.707107L0 7.77817L0.707107 8.48528ZM2.77817 13.0563V6.41421L7.77817 1.41421L12.7782 6.41421V13.0563H9.77817V9.05638V8.05638H5.77817V9.05638V13.0563H2.77817ZM6.77817 9.05638V13.0563H8.77817V9.05638H6.77817Z" fill="#D0BEA7"/>
-                    </svg>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.707107 8.48528L1.77817 7.41421V13.0563V13.0564V14.0563H13.7782V13.0564V13.0563V7.41421L14.8492 8.48528L15.5563 7.77817L8.48528 0.707107L7.77817 0L7.07107 0.707107L0 7.77817L0.707107 8.48528ZM2.77817 13.0563V6.41421L7.77817 1.41421L12.7782 6.41421V13.0563H9.77817V9.05638V8.05638H5.77817V9.05638V13.0563H2.77817ZM6.77817 9.05638V13.0563H8.77817V9.05638H6.77817Z" fill="#D0BEA7"/>
+                        </svg>
                     </button>
                 </div>
                 <div class="nav_item">
-                    <button id="seach">
+                    <button id="search">
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7867 6.5C12.7867 9.53757 10.3242 12 7.28668 12C4.24912 12 1.78668 9.53757 1.78668 6.5C1.78668 3.46243 4.24912 1 7.28668 1C10.3242 1 12.7867 3.46243 12.7867 6.5ZM11.5158 11.4362C10.379 12.411 8.90163 13 7.28668 13C3.69683 13 0.786682 10.0899 0.786682 6.5C0.786682 2.91015 3.69683 0 7.28668 0C10.8765 0 13.7867 2.91015 13.7867 6.5C13.7867 8.11495 13.1977 9.59234 12.2229 10.7291L16.6402 15.1464L15.9331 15.8536L11.5158 11.4362Z" fill="#D0BEA7"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7867 6.5C12.7867 9.53757 10.3242 12 7.28668 12C4.24912 12 1.78668 9.53757 1.78668 6.5C1.78668 3.46243 4.24912 1 7.28668 1C10.3242 1 12.7867 3.46243 12.7867 6.5ZM11.5158 11.4362C10.379 12.411 8.90163 13 7.28668 13C3.69683 13 0.786682 10.0899 0.786682 6.5C0.786682 2.91015 3.69683 0 7.28668 0C10.8765 0 13.7867 2.91015 13.7867 6.5C13.7867 8.11495 13.1977 9.59234 12.2229 10.7291L16.6402 15.1464L15.9331 15.8536L11.5158 11.4362Z" fill="#D0BEA7"/>
                         </svg>
                     </button>
                 </div>
                 <div class="nav_item ">
                     <button>
                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0H6V6H0V7H6V13H7V7H13V6H7V0Z" fill="#D0BEA7"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0H6V6H0V7H6V13H7V7H13V6H7V0Z" fill="#D0BEA7"/>
                         </svg>
                     </button>
                 </div>
@@ -60,22 +55,6 @@
         </div>
     </header>
     <div id="container_principal" class="container">
-        <section id="user" class="hidden">
-            <div class="profile__info">
-                <div class="info__img">
-                </div>
-                <h2 id="user_name" class="h2__title"></h2>
-                <p class="pin__user"></p>
-            </div>
-            <div class="container profile__table">
-                <div class="table__title">
-                    <p>ALL TABLES</p>
-                    <p>ALL PINS</p>
-                </div>
-                <div class="table__tables">
-                </div>
-            </div>
-        </section>
         <!-- <section id="form-login" class="form__registration">
             <form action="" clas>
                 <div class="modal-button">
@@ -92,8 +71,6 @@
 
             </form>
         </section> -->
-        <section id="gallery" class="grid-gallery">
-        </section>
     </div>
 </body>
 </html>
