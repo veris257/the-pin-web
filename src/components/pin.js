@@ -1,5 +1,5 @@
 import { createElementFromHtml } from '../helpers/dom.js'
-// import { renderModal } from '../components/pinModal.js'
+import { renderModal } from '../components/pinModal.js'
 
 const pinTemplate = ({ user, src }) => `
     <div class="grid-gallery__item">
@@ -17,8 +17,6 @@ export function renderPin(pin) {
     $gridGallery.appendChild($galleryItem)
 
     $galleryItem.querySelector('.grid-gallery__image').addEventListener('click', () => {
-        
-        // TODO: Show Pin modal
         renderModal(pin)
     })
 
@@ -28,6 +26,9 @@ export function renderPin(pin) {
 }
 
 export function destroyPin() {
-    // TODO: Destroy pin (event listeners)
-    // TODO: Destroy pin (element)
+    $galleryItem.querySelector('.grid-gallery__image').removeEventListener('click')
+    $galleryItem.querySelector('.pin__user').removeEventListener('click')
+
+
+    document.querySelector('.grid-gallery__item').remove()
 }

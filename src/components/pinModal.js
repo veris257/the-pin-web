@@ -1,5 +1,7 @@
-import { pins } from './modelo.js'
+
 import { createElementFromHtml } from '../helpers/dom.js'
+
+const $wrapperContainer = document.querySelector('#container_principal')
 
 const modalTemplate = ({ user, src, tags, link, title }) => `
     <div class="modal-item">
@@ -12,21 +14,28 @@ const modalTemplate = ({ user, src, tags, link, title }) => `
         </div>
         <div class="modal-pin">
             <div class="modal-pin__img">
-                <img src="" alt="">
+                <img src="${src}" alt="">
             </div>
-            <p class="pin__user">${pin.user}</p>
-            <div class="pin__title">${pin.title}</div>
+            <p class="pin__user">${user}</p>
+            <div class="pin__title">${title}</div>
             <p class="modal-pin__hashtag">
-                ${eachTags}
+                ${tags}
             </p>
-            <p class="modal-pin__link">${pin.link}</p>
+            <p class="modal-pin__link">${link}</p>
         </div>
     </div>
 `
 
-// export function renderModal(pin) {
-    
-// }
+export function renderModal(pin) {
+    const modalItemHtml = modalTemplate(pin)
+    const $modalItem = createElementFromHtml(modalItemHtml)
+    $wrapperContainer.appendChild($modalItem)
+
+    const $buttonCloseModal = document.querySelector('.button__goback')
+    $buttonCloseModal.addEventListener('click', () => {
+        document.querySelector('.modal-item').remove()
+    })
+}
 
 
 

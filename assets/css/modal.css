@@ -25,9 +25,17 @@
 .modal-pin .modal-pin__img{
     width: 100%;
     height: 70%;
-    background-image: url(../img/lights/imagen3.jpg);
-    background-size: cover;
     padding: 10px 5px 0 5px;
+}
+.modal-pin .modal-pin__img img{
+    width: 100%;
+}
+@supports(object-fit: cover){
+    .modal-pin__img img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
 }
 .modal-pin .pin__user{
     width: 100%;
