@@ -26,6 +26,7 @@
     justify-content: space-between;
     border-radius: 20px;
     margin-top: 5px;
+    transition: 0.6s;
 }
 .search__input{
     background-color: transparent;
@@ -44,14 +45,14 @@
     border: none;
     cursor: pointer;
 }
-.menu_mobile__search:hover{
+.menu_mobile__search--active{
     background-color: var(--background-terciary);
 }
-.menu_mobile__search:hover > .search__input{
+.menu_mobile__search--active > .search__input{
     width: 220px;
     padding-left: 10px;
 }
-.menu_mobile__search:hover > .search__button{
+.menu_mobile__search--active > .search__button{
     background-color: var(--background-terciary);
 }
 /* SEARCH */

@@ -1,5 +1,8 @@
 import { createElementFromHtml } from '../helpers/dom.js'
 import { renderModal } from '../components/pinModal.js'
+import { renderUserProfile } from './userProfile.js'
+import { users } from '../model/user.js'
+import { navigateTo } from '../router/index.js'
 
 const pinTemplate = ({ user, src }) => `
     <div class="grid-gallery__item">
@@ -21,7 +24,9 @@ export function renderPin(pin) {
     })
 
     $galleryItem.querySelector('.pin__user').addEventListener('click', () => {
-        // TODO: Navigate to user profile
+        const pinUsername = pin.user
+        const user = users.find(({ user }) => user === pinUsername)
+        navigateTo('userProfile', { user })
     })
 }
 

@@ -11,14 +11,27 @@ const galleryTemplate = () => `
     <section id="gallery" class="grid-gallery" />
 `
 
-export function renderGallery() {
+export function renderGallery({ tags = [] } = {}) {
     const galleryHtml = galleryTemplate()
     const $gallery = createElementFromHtml(galleryHtml)
 
     $wrapperContainer.appendChild($gallery)
 
-    const randomPins = randomizeArray(pins)
-    randomPins.forEach(renderPin)
+    let pinsToShow = []
+
+    if (tags?.length) {
+        pinsToShow = pins.filter(pin => {
+            return tags.some(tag => pin.tags.includes(tag))
+        })
+    } else {
+        pinsToShow = randomizeArray(pins)
+    }
+
+    if (pinsToShow.length) {
+        pinsToShow.forEach(renderPin)
+    } else {
+        // TODO: Show empty list message
+    }
 }
 
 export function destroyGallery() {
