@@ -1,5 +1,5 @@
 import { navigateTo } from '../router/index.js'
-import { renderSearchBar } from '../components/search.js'
+import { renderSearchBar } from './search.js'
 
 const $homeMenuButton = document.querySelector('#home')
 const $searchMenuButton = document.querySelector('#search')
