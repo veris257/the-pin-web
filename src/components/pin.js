@@ -1,8 +1,4 @@
 import { createElementFromHtml } from '../helpers/dom.js'
-import { renderModal } from '../components/pinModal.js'
-import { renderUserProfile } from './userProfile.js'
-import { users } from '../model/user.js'
-import { navigateTo } from '../router/index.js'
 
 const pinTemplate = ({ user, src }) => `
     <div class="grid-gallery__item">
@@ -20,20 +16,15 @@ export function renderPin(pin) {
     $gridGallery.appendChild($galleryItem)
 
     $galleryItem.querySelector('.grid-gallery__image').addEventListener('click', () => {
-        renderModal(pin)
+        // TODO: Show Pin modal
     })
 
     $galleryItem.querySelector('.pin__user').addEventListener('click', () => {
-        const pinUsername = pin.user
-        const user = users.find(({ user }) => user === pinUsername)
-        navigateTo('userProfile', { user })
+        // TODO: Navigate to user profile
     })
 }
 
 export function destroyPin() {
-    $galleryItem.querySelector('.grid-gallery__image').removeEventListener('click')
-    $galleryItem.querySelector('.pin__user').removeEventListener('click')
-
-
-    document.querySelector('.grid-gallery__item').remove()
+    // TODO: Destroy pin (event listeners)
+    // TODO: Destroy pin (element)
 }
