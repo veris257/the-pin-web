@@ -7,7 +7,7 @@ import { navigateTo } from '../router/index.js'
 const pinTemplate = ({ user, src }) => `
     <div class="grid-gallery__item">
         <img class="grid-gallery__image" src="${src}">
-        <p class="pin__user">${user}</p>
+        <p class="pin__user user__name">${user}</p>
     </div>
 `
 
