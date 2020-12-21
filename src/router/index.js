@@ -1,5 +1,6 @@
 import { renderGallery, destroyGallery } from '../components/gallery.js'
 import { processPinsUser, destroyUserProfile } from '../components/userProfile.js'
+import { renderPinForm, destroyPinForm } from '../components/newPin.js'
 
 import { currentUser } from '../model/user.js'
 
@@ -17,6 +18,13 @@ const routes = {
             processPinsUser(user)
         },
         onLeave: destroyUserProfile,
+    },
+    newPinForm: {
+        name: 'newPinForm',
+        onEnter: () => {
+            renderPinForm()
+        },
+        onLeave: destroyPinForm,
     },
 }
 
