@@ -7,3 +7,4 @@ export function initMenu() {
     $homeMenuButton.addEventListener('click', () => navigateTo('gallery'))
     $userProfileMenuButton.addEventListener('click', () => navigateTo('userProfile'))
 }
+
