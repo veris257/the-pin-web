@@ -1,5 +1,7 @@
 import { createElementFromHtml } from '../helpers/dom.js'
 import { navigateTo } from '../router/index.js'
+import { pins } from '../model/pin.js'
+import { renderPin } from './pin.js'
 
 const $wrapperContainer = document.querySelector('#container_principal')
 
@@ -19,21 +21,50 @@ const userProfileTemplate = ({ name, user, photoprofile }) => `
             <h2 id="user_name" class="h2__title">${name}</h2>
             <p class="pin__user">${user}</p>
         </div>
-        <div class="container profile__table">
-            <div class="table__title">
+        <div class="container">
+            <div class="board__title">
                 <p>ALL PINS</p>
-            </div>
-            <div class="table__tables">
             </div>
         </div>
     </section>
 `
 
+const userPinsTemplate = (src) => `
+        <div class="board__pin">
+            <div class="board__pin__item">
+                <img class="board__pin__img" src="${src}">
+            </div>
+        </div>
+`
+
+export function processPinsUser(user) {
+    console.log('entro');
+    const userFind = user.user
+    let pinsOfUser = []
+    pinsOfUser = pins.filter(pin => {
+        return pin.user.includes(userFind)
+    })
+    if (pinsOfUser.length) {
+        renderUserProfile(user)
+        pinsOfUser.forEach(src => {
+            const srcPin = src.src
+            renderUserPins(srcPin)
+        })
+    }
+}
+function renderUserPins(srcPin) {
+    const userPinHtml = userPinsTemplate(srcPin)
+    const $userPin = createElementFromHtml(userPinHtml)
+    const $userWrapper = document.querySelector('#user')
+    $userWrapper.appendChild($userPin)
+}
+
 export function renderUserProfile(user) {
+
     const userProfileHtml = userProfileTemplate(user)
     const $userProfile = createElementFromHtml(userProfileHtml)
-
     $wrapperContainer.appendChild($userProfile)
+
     const $buttonCloseProfile = document.querySelector('.button__gogallery')
     $buttonCloseProfile.addEventListener('click', () => navigateTo('gallery'))
 }

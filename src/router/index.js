@@ -1,5 +1,5 @@
 import { renderGallery, destroyGallery } from '../components/gallery.js'
-import { renderUserProfile, destroyUserProfile } from '../components/userProfile.js'
+import { processPinsUser, destroyUserProfile } from '../components/userProfile.js'
 
 import { currentUser } from '../model/user.js'
 
@@ -14,7 +14,7 @@ const routes = {
     userProfile: {
         name: 'userProfile',
         onEnter: ({ user = currentUser } = {}) => {
-            renderUserProfile(user)
+            processPinsUser(user)
         },
         onLeave: destroyUserProfile,
     },
