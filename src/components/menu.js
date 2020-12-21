@@ -10,3 +10,4 @@ export function initMenu() {
     $userProfileMenuButton.addEventListener('click', () => navigateTo('userProfile'))
     $searchMenuButton.addEventListener('click', renderSearchBar)
 }
+
