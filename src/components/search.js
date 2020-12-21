@@ -1,33 +1,58 @@
-
-import { pins } from '../model/pin.js'
-import { addHidden } from '../helpers/addClass.js'
+import { navigateTo } from '../router/index.js'
 
 const $wrapperContainer = document.querySelector('#container_principal')
 
-export function renderSearchBar() {
+const $inputButton = document.querySelector('.search__button')
+const $inputSearch = document.querySelector('.search__input')
 
-    const inputSearch = document.querySelector('.search__input')
+export function initSearch() {
+    $inputButton.addEventListener('click', e => {
+        e.currentTarget.parentElement.classList.toggle('menu_mobile__search--active')
+    })
 
-    inputSearch.addEventListener('keydown', e => {
-        if (e.keyCode === 13) {
-            e.preventDefault();
-            processTags(e.target.value);
-            addHidden($formSearch);
-        }
-    });
+    $inputSearch.addEventListener('keydown', e => {
+        const ENTER_KEY = 13
+        if (e.keyCode !== ENTER_KEY) return
+        e.preventDefault()
+        doSearch()
+    })
 }
 
-let splitted = []
+export function doSearch() {
+    const { value } = $inputSearch
+
+    if (!value.length) {
+        clearTags()
+        navigateTo('gallery')
+        return
+    }
+
+    const tags = processTags(value)
+    if (!tags.length) return
+
+    $inputSearch.value = ''
+    renderTags(tags)
+
+    navigateTo('gallery', { tags })
+}
 
 function processTags(valueInput){
-    splitted = valueInput.toLowerCase().split(' ');
-    printTag(splitted)
-    searchMathch(splitted)
+    const tags = valueInput
+        .trim()
+        .replace(/ +(?= )/g, '')
+        .toLowerCase()
+        .split(' ')
+
+    return Array.from(new Set(tags))
 }
-function printTag(splitted) {
+
+function renderTags(tags) {
+    clearTags()
+
     const $wrapperTags = document.createElement('div')
     $wrapperTags.classList.add('search__tags')
-    splitted.forEach(tag => {
+
+    tags.forEach(tag => {
         const $tags = document.createElement('p')
         $tags.classList.add('modal-pin__hashtag')
         $tags.innerHTML += `#${tag}`
@@ -36,17 +61,6 @@ function printTag(splitted) {
     })
 }
 
-function searchMathch(splitted) {
-    for(let pin of pins) {
-        const allTags =  pin.tags
-        splitted.forEach(split => {
-            const result = allTags.map((tag, ind) => {
-                if (split === tag) return tag
-            })
-            console.log(result);
-            return result
-        })
-    }
-
+function clearTags() {
+    document.querySelector('.search__tags')?.remove()
 }
-

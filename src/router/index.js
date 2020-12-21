@@ -8,19 +8,19 @@ let currentRoute = null
 const routes = {
     gallery: {
         name: 'gallery',
-        onEnter: renderGallery,
+        onEnter: ({ tags } = {}) => renderGallery({ tags }),
         onLeave: destroyGallery,
     },
     userProfile: {
         name: 'userProfile',
-        onEnter: () => {
-            renderUserProfile(currentUser)
+        onEnter: ({ user = currentUser } = {}) => {
+            renderUserProfile(user)
         },
         onLeave: destroyUserProfile,
     },
 }
 
-export function navigateTo(routeKey) {
+export function navigateTo(routeKey, params) {
     const route = routes[routeKey]
 
     if (!route) {
@@ -28,8 +28,8 @@ export function navigateTo(routeKey) {
         return
     }
 
-    if (currentRoute) currentRoute.onLeave()
-    route.onEnter()
+    if (currentRoute) currentRoute.onLeave(params)
+    route.onEnter(params)
 
     currentRoute = route
 }
