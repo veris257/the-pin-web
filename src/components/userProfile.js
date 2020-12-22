@@ -38,7 +38,6 @@ const userPinsTemplate = (src) => `
 `
 
 export function processPinsUser(user) {
-    console.log('entro');
     const userFind = user.user
     let pinsOfUser = []
     pinsOfUser = pins.filter(pin => {
