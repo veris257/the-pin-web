@@ -7,8 +7,10 @@ import { initMenu } from './components/menu.js'
 import { init } from './components/toast.js'
 
 import { loginUser } from './services/login.js'
+import { getPinsFromLocalStorage } from './services/storage.js'
 
 // Initialize app
+getPinsFromLocalStorage()
 loginUser(USER_VERO)
 initSearch()
 initMenu()
