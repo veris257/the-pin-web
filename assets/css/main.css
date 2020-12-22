@@ -7,6 +7,7 @@
 @import './profile.css';
 @import './search.css';
 @import './notification.css';
+@import './toast.css';
 
 :root{
     --background-principal:#645D59 ;
