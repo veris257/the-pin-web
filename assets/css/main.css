@@ -5,6 +5,8 @@
 @import './modal.css';
 @import './form.css';
 @import './profile.css';
+@import './search.css';
+@import './notification.css';
 
 :root{
     --background-principal:#645D59 ;
