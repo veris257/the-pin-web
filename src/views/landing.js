@@ -31,7 +31,7 @@ export const landingView = {
         } = this.getChildren()
 
         $loginButton[actionEventListener]('click', () => {
-            LoginService.loginAs(1)
+            LoginService.loginAs(0)
             navigateTo('gallery')
         })
     },
