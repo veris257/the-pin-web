@@ -1,51 +1,40 @@
-export const pins = [
-    {
-        user: '@verovelazquez',
-        title: 'Example1',
-        src: 'assets/img/building/imagen1.jpg',
-        link: 'www.instagram.com/veris257',
-        tags: ['building', 'otro'],
-        creationDate: new Date(),
-    },
-    {
-        user: '@raulhuelamo',
-        title: 'Example2',
-        src: 'assets/img/lights/imagen1.jpg',
-        link: 'www.instagram.com/veris257',
-        tags: ['lights', 'otro'],
-        creationDate: new Date(),
-    },
-    {
-        user: '@evaplaza',
-        title: 'Example3',
-        src: 'assets/img/people/imagen2.jpg',
-        link: 'www.instagram.com/veris257',
-        tags: ['people', 'otro'],
-        creationDate: new Date(),
-    },
-    {
-        user: '@saraalcantara',
-        title: 'Example4',
-        src: 'assets/img/building/imagen2.jpg',
-        link: 'www.instagram.com/veris257',
-        tags: ['building', 'otro'],
-        creationDate: new Date(),
-    },
-    {
-        user: '@lauralara',
-        title: 'Example5',
-        src: 'assets/img/people/imagen3.jpg',
-        link: 'www.instagram.com/veris257',
-        tags: ['people', 'otro'],
-        creationDate: new Date(),
-    },
-    {
-        user: '@carlosmasedo',
-        title: 'Example6',
-        src: 'assets/img/lights/imagen4.jpg',
-        link: 'www.instagram.com/veris257',
-        tags: ['lights', 'otro'],
-        creationDate: new Date(),
-    },
-]
+import { Storage } from '../services/storage.js'
 
+export const PIN_STORAGE_NAME = 'pins'
+Storage.init(PIN_STORAGE_NAME, [])
+
+export const pins = Storage.get(PIN_STORAGE_NAME)
+
+export function getFilteredPins({ tags, user } = {}) {
+    let resultPins = [...pins]
+
+    if (tags?.length) {
+        resultPins = resultPins.filter(pin => {
+            return tags.some(tag => pin.tags.includes(tag))
+        })
+    }
+
+    if (user) {
+        resultPins = resultPins.filter(pin => {
+            return pin.user === user.user
+        })
+    }
+
+    return resultPins
+}
+
+export function savePin(pin) {
+    pins.push(pin)
+    Storage.set(PIN_STORAGE_NAME, pins)
+}
+
+/*
+{
+    user: '@verovelazquez',
+    title: 'Example1',
+    src: 'assets/img/building/imagen1.jpg',
+    link: 'www.instagram.com/veris257',
+    tags: ['building', 'window', 'white'],
+    creationDate: '2020-12-22T23:53:42.243Z',
+}
+*/

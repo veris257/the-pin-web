@@ -1,8 +1,8 @@
-function addHidden(wrapper) {
+function hide(wrapper) {
     wrapper.classList.add('hidden')
 }
-function removeHidden(wrapper) {
+function show(wrapper) {
     wrapper.classList.remove('hidden')
 }
 
-export { addHidden, removeHidden }
+export { hide, show }

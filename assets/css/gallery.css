@@ -18,8 +18,9 @@
     object-fit: cover;
     margin-bottom: 5px;
 }
-.user__name {
-    text-decoration: none;
-    color: var(--color-);
+.grid-gallery__item .user__name {
+    width: 100%;
+    height: 20px;
+    margin: 2px 0;
     cursor: pointer;
 }
