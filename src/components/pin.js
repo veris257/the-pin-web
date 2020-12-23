@@ -20,7 +20,7 @@ export const pinComponent = {
             $pinUsername: $thisElement.querySelector('.pin__user'),
         }
     },
-    listeners: function ($thisElement, action, renderModal) {
+    listeners: function ($thisElement, action, pin, renderModal) {
         // action = [add, remove]
 
         const actionEventListener = action === 'remove'
@@ -41,11 +41,11 @@ export const pinComponent = {
     },
     render: function ($container, pin) {
         const $thisElement = renderTemplateToContainer($container, this.template, pin, true)
-        this.listeners($thisElement, 'add', () => pinModalComponent.render($container, pin))
+        this.listeners($thisElement, 'add', pin, () => pinModalComponent.render($container, pin))
         return $thisElement
     },
     destroy: function ($thisElement, pin) {
-        this.listeners($thisElement, 'remove', () => pinModalComponent.destroy($container, pin))
+        this.listeners($thisElement, 'remove', pin, () => pinModalComponent.destroy($container, pin))
         $thisElement.remove()
     },
 }

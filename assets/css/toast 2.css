@@ -1,0 +1,38 @@
+.toast {
+    position: fixed;
+    top: 0;
+    right: 7%;
+    margin: auto;
+
+    max-width: 55px;
+
+    background: var(--background-terciary);
+    color: #333333;
+    font-family: sans-serif;
+    text-align: center;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity 0.2s, top 0.2s, visibility 0.2s;
+
+}
+.arrow-top:after {
+    content: " ";
+    position: absolute;
+    right: 6%;
+    margin-right: 2px;
+    top: -9px;
+    border-top: none;
+    border-right: 9px solid transparent;
+    border-left: 9px solid transparent;
+    border-bottom: 9px solid  var(--background-terciary);
+}
+.toast--visible{
+    top: 55px;
+    opacity: 1;
+    visibility: visible;
+}
