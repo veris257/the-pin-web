@@ -1,38 +1,18 @@
-export const USER_VERO = 0
-export const USER_RAUL = 1
-
-export const users = [
-    {
-        user: '@verovelazquez',
-        name: 'Verónica Velázquez',
-        photoprofile: 'assets/img/foto3.jpg',
-    },
-    {
-        user: '@raulhuelamo',
-        name: 'Raúl Huélamo',
-        photoprofile: 'assets/img/foto1.jpg',
-    },
-    {
-        user: '@evaplaza',
-        name: 'Eva Plaza',
-        photoprofile: 'assets/img/foto1.jpg',
-    },
-    {
-        user: '@saraalcantara',
-        name: 'Sara Alcantara',
-        photoprofile: 'assets/img/foto1.jpg',
-    },
-    {
-        user: '@carlosmasedo',
-        name: 'Carlos Masedo',
-        photoprofile: 'assets/img/foto1.jpg',
-    },
-    {
-        user: '@lauralara',
-        name: 'Laura Lara',
-        photoprofile: 'assets/img/foto1.jpg',
-    }
-]
+import { Storage } from '../services/storage.js'
 
 export let currentUser
 export const setCurrentUserIndex = userIndex => currentUser = users[userIndex]
+
+export const USER_STORAGE_NAME = 'users'
+Storage.init(USER_STORAGE_NAME, [])
+
+export const users = Storage.get(USER_STORAGE_NAME)
+
+/*
+{
+    user: '@verovelazquez',
+    name: 'Verónica Velázquez',
+    password: '12345',
+    photoprofile: 'assets/img/foto3.jpg',
+}
+*/

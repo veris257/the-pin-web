@@ -11,7 +11,7 @@
 .board__title {
     display: flex;
     flex-flow: row nowrap;
-    margin-bottom: 20px;
+    padding: 0 0 20px 0;
 }
 .board__title p:hover {
     font-size: 700;

@@ -1,24 +1,6 @@
 import { navigateTo } from '../router/index.js'
 
-const $wrapperContainer = document.querySelector('#container_principal')
-
-const $inputButton = document.querySelector('.search__button')
-const $inputSearch = document.querySelector('.search__input')
-
-export function initSearch() {
-    $inputButton.addEventListener('click', e => {
-        e.currentTarget.parentElement.classList.toggle('menu_mobile__search--active')
-    })
-
-    $inputSearch.addEventListener('keydown', e => {
-        const ENTER_KEY = 13
-        if (e.keyCode !== ENTER_KEY) return
-        e.preventDefault()
-        doSearch()
-    })
-}
-
-export function doSearch() {
+export function doSearch($tagsContainer, $inputSearch) {
     const { value } = $inputSearch
 
     if (!value.length) {
@@ -31,7 +13,7 @@ export function doSearch() {
     if (!tags.length) return
 
     $inputSearch.value = ''
-    renderTags(tags)
+    renderTags($tagsContainer, tags)
 
     navigateTo('gallery', { tags })
 }
@@ -46,7 +28,7 @@ function processTags(valueInput){
     return Array.from(new Set(tags))
 }
 
-function renderTags(tags) {
+function renderTags($container, tags) {
     clearTags()
 
     const $wrapperTags = document.createElement('div')
@@ -57,10 +39,55 @@ function renderTags(tags) {
         $tags.classList.add('modal-pin__hashtag')
         $tags.innerHTML += `#${tag}`
         $wrapperTags.appendChild($tags)
-        $wrapperContainer.insertBefore($wrapperTags, $wrapperContainer.childNodes[0])
+        $container.insertBefore($wrapperTags, $container.childNodes[0])
     })
 }
 
 function clearTags() {
     document.querySelector('.search__tags')?.remove()
+}
+
+export const searchComponent = {
+    name: 'search',
+    template: () => ``,
+    getChildren: function () {
+        return {
+            $inputButton: document.querySelector('.search__button'),
+            $inputSearch: document.querySelector('.search__input'),
+            $tagsContainer: document.querySelector('#container_main'),
+            $tags: document.querySelector('.search__tags'),
+        }
+    },
+    listeners: function (action) {
+        // action = [add, remove]
+
+        const actionEventListener = action === 'remove'
+            ? 'removeEventListener'
+            : 'addEventListener'
+
+        const {
+            $inputButton,
+            $inputSearch,
+            $tagsContainer,
+        } = this.getChildren()
+
+        $inputButton[actionEventListener]('click', e => {
+            e.currentTarget.parentElement.classList.toggle('menu_mobile__search--active')
+        })
+
+        $inputSearch[actionEventListener]('keydown', e => {
+            const ENTER_KEY = 13
+            if (e.keyCode !== ENTER_KEY) return
+            e.preventDefault()
+            doSearch($tagsContainer, $inputSearch)
+        })
+    },
+    render: function () {
+        this.listeners('add')
+    },
+    destroy: function () {
+        const { $tags } = this.getChildren()
+        $tags.remove()
+        this.listeners('remove')
+    },
 }

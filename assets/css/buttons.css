@@ -1,4 +1,24 @@
-.button__goback {
+.button__login {
+    width: 70%;
+    height: 40px;
+    border-radius: 20px;
+    color: var(--color-secundary);
+    background-color: var(--background-first);
+    border: 1px solid var(--color-secundary);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.button__login:hover {
+    width: 70%;
+    height: 40px;
+    border-radius: 20px;
+    color: var(--color-secundary);
+    background-color: var(--background-secundary);
+    border: 1px solid var(--color-secundary);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.button__goback, .button__gohome {
     display: inline-block;
     appearance: none;
     cursor: pointer;
@@ -13,7 +33,7 @@
     height: 40px;
     border-radius: 20px;
     color: var(--color-secundary);
-    background-color: var(--background-principal);
+    background-color: var(--background-first);
     border: 1px solid var(--color-secundary);
     padding: 10px;
 }

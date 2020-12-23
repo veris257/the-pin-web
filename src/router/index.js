@@ -1,31 +1,67 @@
-import { renderGallery, destroyGallery } from '../components/gallery.js'
-import { processPinsUser, destroyUserProfile } from '../components/userProfile.js'
-import { renderPinForm, destroyPinForm } from '../components/newPin.js'
-
-import { currentUser } from '../model/user.js'
+import { landingView } from '../views/landing.js'
+import { loginView } from '../views/login.js'
+import { galleryView } from '../views/gallery.js'
+import { addPinView } from '../views/addPin.js'
+import { userProfileView } from '../views/userProfile.js'
+import { menuComponent } from '../components/menu.js'
 
 let currentRoute = null
 
 const routes = {
+    landing: {
+        route: '/',
+        view: landingView,
+        options: {
+            marbleBackground: true,
+        },
+    },
+    login: {
+        route: '/',
+        view: loginView,
+    },
     gallery: {
-        name: 'gallery',
-        onEnter: ({ tags } = {}) => renderGallery({ tags }),
-        onLeave: destroyGallery,
+        route: '/gallery',
+        view: galleryView,
+        options: {
+            displayNavigation: true,
+        },
     },
     userProfile: {
-        name: 'userProfile',
-        onEnter: ({ user = currentUser } = {}) => {
-            processPinsUser(user)
+        route: '/user',
+        view: userProfileView,
+        options: {
+            displayNavigation: true,
         },
-        onLeave: destroyUserProfile,
     },
-    newPinForm: {
-        name: 'newPinForm',
-        onEnter: () => {
-            renderPinForm()
+    addPin: {
+        route: '/add',
+        view: addPinView,
+        options: {
+            displayNavigation: true,
         },
-        onLeave: destroyPinForm,
     },
+}
+
+const $container = document.querySelector('#container_main')
+
+function setupBackground({ marbleBackground = false } = {}) {
+    if (marbleBackground) {
+        document.body.classList.add('marble-background')
+    } else {
+        document.body.classList.remove('marble-background')
+    }
+}
+
+let currentViewHasNavigation = false
+
+function setupNavigation({ displayNavigation = false } = {}) {
+    if (displayNavigation && !currentViewHasNavigation) {
+        menuComponent.render(document.body)
+    } else if (!displayNavigation && currentViewHasNavigation) {
+        menuComponent.destroy()
+    }
+
+    currentViewHasNavigation = displayNavigation
 }
 
 export function navigateTo(routeKey, params) {
@@ -36,8 +72,13 @@ export function navigateTo(routeKey, params) {
         return
     }
 
-    if (currentRoute) currentRoute.onLeave(params)
-    route.onEnter(params)
+    if (currentRoute) currentRoute.view.destroy(params)
+
+    const { options } = route
+    setupBackground(options)
+    setupNavigation(options)
+
+    route.view.render($container, params)
 
     currentRoute = route
 }

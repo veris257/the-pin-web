@@ -1,39 +1,51 @@
-import { createElementFromHtml } from '../helpers/dom.js'
-import { renderModal } from '../components/pinModal.js'
-import { renderUserProfile } from './userProfile.js'
+import { renderTemplateToContainer } from '../helpers/dom.js'
+import { pinModalComponent } from '../components/pinModal.js'
 import { users } from '../model/user.js'
 import { navigateTo } from '../router/index.js'
 
-const pinTemplate = ({ user, src }) => `
-    <div class="grid-gallery__item">
-        <img class="grid-gallery__image" src="${src}">
-        <p class="pin__user user__name">${user}</p>
-    </div>
-`
+// This component injects $thisElement in every function because it is instantiated multiple times in parallel
+// It is the only component in this situation for the whole app
+// That's the reason why though the structure is the same, some function parameters difer from the common implementation
+export const pinComponent = {
+    name: 'pin',
+    template: ({ user, src }) => `
+        <div class="grid-gallery__item">
+            <img class="grid-gallery__image" src="${src}">
+            <p class="pin__user user__name">${user}</p>
+        </div>
+    `,
+    getChildren: function ($thisElement) {
+        return {
+            $pinImage: $thisElement.querySelector('.grid-gallery__image'),
+            $pinUsername: $thisElement.querySelector('.pin__user'),
+        }
+    },
+    listeners: function ($thisElement, action, renderModal) {
+        // action = [add, remove]
 
-export function renderPin(pin) {
-    const $gridGallery = document.querySelector('#gallery')
+        const actionEventListener = action === 'remove'
+            ? 'removeEventListener'
+            : 'addEventListener'
 
-    const galleryItemHtml = pinTemplate(pin)
-    const $galleryItem = createElementFromHtml(galleryItemHtml)
+        const {
+            $pinImage,
+            $pinUsername,
+        } = this.getChildren($thisElement)
 
-    $gridGallery.appendChild($galleryItem)
-
-    $galleryItem.querySelector('.grid-gallery__image').addEventListener('click', () => {
-        renderModal(pin)
-    })
-
-    $galleryItem.querySelector('.pin__user').addEventListener('click', () => {
-        const pinUsername = pin.user
-        const user = users.find(({ user }) => user === pinUsername)
-        navigateTo('userProfile', { user })
-    })
-}
-
-export function destroyPin() {
-    $galleryItem.querySelector('.grid-gallery__image').removeEventListener('click')
-    $galleryItem.querySelector('.pin__user').removeEventListener('click')
-
-
-    document.querySelector('.grid-gallery__item').remove()
+        $pinImage[actionEventListener]('click', renderModal)
+        $pinUsername[actionEventListener]('click', () => {
+            const pinUsername = pin.user
+            const user = users.find(({ user }) => user === pinUsername)
+            navigateTo('userProfile', { user })
+        })
+    },
+    render: function ($container, pin) {
+        const $thisElement = renderTemplateToContainer($container, this.template, pin, true)
+        this.listeners($thisElement, 'add', () => pinModalComponent.render($container, pin))
+        return $thisElement
+    },
+    destroy: function ($thisElement, pin) {
+        this.listeners($thisElement, 'remove', () => pinModalComponent.destroy($container, pin))
+        $thisElement.remove()
+    },
 }

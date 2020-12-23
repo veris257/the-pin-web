@@ -8,12 +8,13 @@
 @import './search.css';
 @import './notification.css';
 @import './toast.css';
+@import './home.css';
 
 :root{
-    --background-principal:#645D59 ;
+    --background-first:#645D59 ;
     --background-secundary: #5B5551;
     --background-terciary: #BAB2A9;
-    --color-principal: #000;
+    --color-first: #000;
     --color-secundary: #D0BEA7;
 }
 
@@ -27,7 +28,10 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 400;
-    color: var(--color-principal);
+    color: var(--color-first);
+}
+body.marble-background {
+    background-image: url('../img/home.jpg');
 }
 .button:active,
 .button:hover,

@@ -1,5 +1,7 @@
 import { setCurrentUserIndex } from '../model/user.js'
 
-export function loginUser(userIndex) {
-    setCurrentUserIndex(userIndex)
+export const LoginService = {
+    loginAs: function(userIndex = 0) {
+        setCurrentUserIndex(userIndex)
+    },
 }
