@@ -21,6 +21,7 @@ export const pinComponent = {
         }
     },
     listeners: function ($thisElement, action, pin, renderModal) {
+
         // action = [add, remove]
 
         const actionEventListener = action === 'remove'

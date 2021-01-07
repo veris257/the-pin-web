@@ -101,3 +101,4 @@ export const menuComponent = {
         document.querySelector('.header_home').remove()
     },
 }
+
